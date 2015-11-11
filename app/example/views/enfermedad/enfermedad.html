@@ -43,7 +43,7 @@
 
   <h2>App APS </h2>
   <p>Bienvenidos a la App de <strong>Atención Primaria de la Salud</strong> &mdash; con el Framework AppGyver</p>
-  <super-navigate location="example#enfermedad/nueva-enfermedad">
+  <super-navigate location="example#hola/enfermedad">
   <button class="button button-block button-positive">Nueva Enfermedad</button>
   </super-navigate>
   <br>
@@ -79,7 +79,7 @@
                                                                    $.each(jsonData, function (key, val) {
                                                                         //Añadimos la fila a la tabla
                                                                       $('<tr><td>' + val.idEnfermedades + '</td><td>' + val.clase + '</td><td>\n\
-                                                                        <button class="button button-block button-positive" onclick="erase('+val.idEnfermedades+')">Borrar </button><super-navigate location="example#enfermedad/edit-enfermedad"><button onclick="idtemporalenfe('+val.idEnfermedades+')"  class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
+                                                                        <button class="button button-block button-positive" onclick="erase('+val.idEnfermedades+')">Borrar </button><super-navigate location="example#edit-enfermedad"><button onclick="idtemporalenfe('+val.idEnfermedades+')"  class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
                                                                     });
                                                                }
                                                                 ); 

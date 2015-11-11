@@ -7,7 +7,7 @@ localStorage.setItem("idenfermedad", id);
  function cargarEnfer() {
        var iddee = localStorage.getItem("idenfermedad");
        $('#idenferm').val(iddee);
-       $.getJSON("http://192.168.43.190:8080/APSS/webresources/model.enfermedades/"+iddee,
+       $.getJSON("http://192.168.0.10:8080/APSS/webresources/model.enfermedades/"+iddee,
         function (jsonData) { 
         //    Por cada uno creamos una fila de HTML
            
@@ -25,7 +25,7 @@ function erase(id) {
             
              $.ajax({
                  type: "DELETE",
-                 url: "http://192.168.43.190:8080/APSS/webresources/model.enfermedades/delete/"+id,
+                 url: "http://192.168.0.10:8080/APSS/webresources/model.enfermedades/delete/"+id,
                  processData: true,
                  success: function (data, status, jqXHR) {
                      alert("Eliminado Correctamente. "+id);
@@ -49,7 +49,7 @@ function NewEnfermedades() {
              };
              $.ajax({
                  type: "POST",
-                 url: "http://192.168.43.190:8080/APSS/webresources/model.enfermedades",
+                 url: "http://192.168.0.10:8080/APSS/webresources/model.enfermedades",
                  data: JSON.stringify(CLData),
                  contentType: "application/json; charset=utf-8",
                  dataType: "json",
@@ -63,7 +63,7 @@ function NewEnfermedades() {
              });
          }
 
-function UpdateEnfermedades(id) {
+function UpdateEnfermedades() {
      var enfermedadactualizada = document.getElementById('actualizarenf').value;
      var idac = document.getElementById('idactualizar').value;
              var CLData = {
@@ -72,7 +72,7 @@ function UpdateEnfermedades(id) {
              };
              $.ajax({
                  type: "PUT",
-                 url: "http://192.168.43.190:8080/APSS/webresources/model.enfermedades/"+idac,
+                 url: "http://192.168.0.10:8080/APSS/webresources/model.enfermedades/"+idac,
                  data: JSON.stringify(CLData),
                  contentType: "application/json; charset=utf-8",
                  dataType: "json",

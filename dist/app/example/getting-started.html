@@ -90,6 +90,10 @@
 
   <h2>App APS </h2>
   <p>Bienvenidos a la App de <strong>Atención Primaria de la Salud</strong> &mdash; con el Framework AppGyver</p>
+  <super-navigate location="example#nueva-enfermedad">
+  <button class="button button-block button-positive">Nueva Enfermedad</button>
+  </super-navigate>
+  <br>
   <form>
     <div >
         <div id="bus">
@@ -98,6 +102,7 @@
         </div>
     </div>
   </form>
+  <br>
                                              <table id="resultado">
                                                 
                                                 <!-- Make a Header Row -->
@@ -121,7 +126,7 @@
                                                                    $.each(jsonData, function (key, val) {
                                                                         //Añadimos la fila a la tabla
                                                                       $('<tr><td>' + val.idEnfermedades + '</td><td>' + val.clase + '</td><td>\n\
-                                                                        <button class="button button-block button-positive" onclick="erase('+val.idEnfermedades+')">Borrar </button><super-navigate location="example#nueva-enfermedad"><button onclick="idtemporalenfe('+val.idEnfermedades+')"  class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
+                                                                        <button class="button button-block button-positive" onclick="erase('+val.idEnfermedades+')">Borrar </button><super-navigate location="example#edit-enfermedad"><button onclick="idtemporalenfe('+val.idEnfermedades+')"  class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
                                                                     });
                                                                }
                                                                 ); 
@@ -133,13 +138,7 @@
                                                 </tr>   
                                                 </tbody>   
                                             </table>
-  <!--p>Probar el PUT</p>
-  <input style="background:#CCC" type="text" id="actualizarenf" placeholder="Actualizar enfermedad">
-   <input style="background:#DDD" type="text" id="idactualizar" placeholder="ID actualizar">
-   <button onclick="UpdateEnfermedades()">Actualizar enfermedad</button--> 
-   <p>Probar el POST</p>
-  <input type="text" id="nuevaenf" placeholder="Nueva enfermedad">
-   <button onclick="NewEnfermedades()">Crear nueva enfermedad</button>   
+    
 </div>
 
 

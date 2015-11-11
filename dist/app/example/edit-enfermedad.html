@@ -11,7 +11,7 @@
   <meta charset="utf8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <title>nueva-enfermedad</title>
+  <title>edit-enfermedad</title>
 
   <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
   <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
@@ -52,8 +52,25 @@
     </super-navbar-title>
   </super-navbar>
 <p>Ingrese la información de la nueva enfermedad</p>
-<input type="text" id="nuevaenf" placeholder="Nueva enfermedad">
-   <button onclick="NewEnfermedades()">Crear nueva enfermedad</button>                                         
+<script>
+       var iddee = localStorage.getItem("idenfermedad");
+       $('#idenferm').val(iddee);
+       $.getJSON("http://192.168.0.10:8080/APSS/webresources/model.enfermedades/"+iddee,
+        function (jsonData) { 
+        //    Por cada uno creamos una fila de HTML
+           
+           $.each(jsonData, function (key, val) {
+                //Añadimos la fila a la tabla
+              $('#actualizarenf').val(jsonData.clase);
+              $('#idactualizar').val(iddee);
+            });
+       }
+        );
+
+</script>
+<input type="text" id="actualizarenf" placeholder="Actualizar enfermedad">
+<input style="visibility:hidden" type="text" id="idactualizar" placeholder="ID actualizar">
+   <button onclick="UpdateEnfermedades()">Actualizar enfermedad</button-->                                         
 
 </div>
 

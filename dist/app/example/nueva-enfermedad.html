@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>nueva-enfermedad</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/jquery/dist/jquery.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="/components/jquery/dist/enfermedades.js"></script>
+
+  <script>
+	$(document).ready(function(){
+  		$( ".ocultar" ).click(function() {
+	  		$( ".loque" ).hide();
+		});
+      $( ".mostrar" ).click(function() {
+        $( ".loque" ).show();
+    });
+  	});
+
+  </script> 
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/example.js"></script>
+  
+</head>
+<body ng-app="example">
+
+<div class="padding">
+  <super-navbar>
+    <super-navbar-title>
+      Sistema APS
+    </super-navbar-title>
+  </super-navbar>
+<p>Ingrese la información de la nueva enfermedad</p>
+<script>
+       var iddee = localStorage.getItem("idenfermedad");
+       $('#idenferm').val(iddee);
+       $.getJSON("http://192.168.0.10:8080/APSS/webresources/model.enfermedades/"+iddee,
+        function (jsonData) { 
+        //    Por cada uno creamos una fila de HTML
+           
+           $.each(jsonData, function (key, val) {
+                //Añadimos la fila a la tabla
+              $('#actualizarenf').val(jsonData.clase);
+              $('#idactualizar').val(iddee);
+            });
+       }
+        );
+
+</script>
+<input style="background:#CCC" type="text" id="actualizarenf" placeholder="Actualizar enfermedad">
+<input style="background:#DDD" type="text" id="idactualizar" placeholder="ID actualizar">
+   <button onclick="UpdateEnfermedades()">Actualizar enfermedad</button-->                                         
+
+</div>
+
+
+</body>
+</html>

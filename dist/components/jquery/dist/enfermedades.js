@@ -4,6 +4,11 @@ localStorage.setItem("idenfermedad", id);
 
  }
 
+ function Refresh() {
+//alert("entre en refrest");
+    window.location.reload();  
+        }
+
  function cargarEnfer() {
        var iddee = localStorage.getItem("idenfermedad");
        $('#idenferm').val(iddee);
@@ -29,6 +34,7 @@ function erase(id) {
                  processData: true,
                  success: function (data, status, jqXHR) {
                      alert("Eliminado Correctamente. "+id);
+                     Refresh();
                  },
                  error: function (xhr, status, error) {
                      alert("no anda che "+id);

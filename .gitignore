@@ -1,3 +1,4 @@
 *.log
 $ cat .gitignore
 dist/**
+dist/**/*

@@ -59,7 +59,7 @@
   Laboratorio</h3 >
   <br>
   
-<super-navigate location="example#nuevo-Laboratorio"><button  class="button button-block button-positive">Nuevo</button></super-navigate>	                       
+<super-navigate location="example#laboratorio/nuevo-Laboratorio"><button  class="button button-block button-positive">Nuevo</button></super-navigate>	                       
      											<form>
                                                 <div >
                                                     <div id="bus">
@@ -97,7 +97,7 @@
                                                                         val.nombreLaboratorio + '</td><td>' + 
                                                                         val.direccionLaboratorio + '</td><td>' +
                                                                         val.telefonoLaboratorio + '</td> <td>\n\
-                                                                          <button class="button button-block button-positive" onclick="erase('+val.idLaboratorio+')">Borrar </button><super-navigate location="example#editar-Laboratorio"><button onclick="idtemporalLab('+val.idLaboratorio+')" class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
+                                                                          <button class="button button-block button-positive" onclick="erase('+val.idLaboratorio+')">Borrar </button><super-navigate location="example#laboratorio/editar-Laboratorio"><button onclick="idtemporalLab('+val.idLaboratorio+')" class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
                                                                   });
                                                                }
                                                                 ); 

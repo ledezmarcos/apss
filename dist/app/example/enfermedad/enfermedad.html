@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script>
+  window.addEventListener('WebComponentsReady', function() {
+    supersonic.app.splashscreen.hide();
+  });
+  </script>
+  <!-- Cloud resource definition file for Supersonic Data -->
+  <script src="/cloud-resources.js"></script>
+  <meta charset="utf8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  <title>enfermedad/enfermedad</title>
+
+  <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
+  <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
+  <link rel="import" href="/components/supersonic/components/import.html">
+
+  <script src="http://localhost/cordova.js"></script>
+  <script src="/components/steroids-js/steroids.js"></script>
+  <script src="/components/jquery/dist/jquery.js"></script>
+  <script src="/components/angular/angular.js"></script>
+  <script src="/components/supersonic/supersonic.js"></script>
+  <script src="/components/webcomponentsjs/webcomponents.js"></script>
+  <script src="/components/jquery/dist/enfermedades.js"></script>
+  <script src="/components/jquery/dist/Laboratorio.js"></script>
+  <script src="/components/jquery/dist/proveedor.js"></script>
+
+  <script>
+	$(document).ready(function(){
+  		$( ".ocultar" ).click(function() {
+	  		$( ".loque" ).hide();
+		});
+      $( ".mostrar" ).click(function() {
+        $( ".loque" ).show();
+    });
+  	});
+
+  </script> 
+
+  
+  <script src="/app/common.js"></script>
+  
+  <script src="/app/example.js"></script>
+  
+</head>
+<body ng-app="example">
+
+<div class="padding">
+<script language="javascript">
+    function doSearch()
+    {
+      var tableReg = document.getElementById('resultado');
+      var searchText = document.getElementById('searchTerm1').value.toLowerCase();
+      var cellsOfRow="";
+      var found=false;
+      var compareWith="";
+ 
+      // Recorremos todas las filas con contenido de la tabla
+      for (var i = 1; i < tableReg.rows.length; i++)
+      {
+        cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+        found = false;
+        // Recorremos todas las celdas
+        for (var j = 0; j < cellsOfRow.length && !found; j++)
+        {
+          compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+          // Buscamos el texto en el contenido de la celda
+          if (searchText.length == 0 || (compareWith.indexOf(searchText) > -1))
+          {
+            found = true;
+          }
+        }
+        if(found)
+        {
+          tableReg.rows[i].style.display = '';
+        } else {
+          // si no ha encontrado ninguna coincidencia, esconde la
+          // fila de la tabla
+          tableReg.rows[i].style.display = 'none';
+        }
+      }
+    }
+  </script>
+
+  <super-navbar>
+    <super-navbar-title>
+      Sistema APS
+    </super-navbar-title>
+  </super-navbar>
+
+  <h2>App APS </h2>
+  <p>Bienvenidos a la App de <strong>Atención Primaria de la Salud</strong> &mdash; con el Framework AppGyver</p>
+  <super-navigate location="example#hola/enfermedad">
+  <button class="button button-block button-positive">Nueva Enfermedad</button>
+  </super-navigate>
+  <br>
+  <form>
+    <div >
+        <div id="bus">
+          <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS8wu-0UrjpMgJOhbHPP-InEUFgS4Pw0DgcTLemBCVVPZE3SiSpxQ"/> Buscar:
+            <input id="searchTerm1" type="text" onkeyup="doSearch()"class="form-control" placeholder="Busqueda.. " />
+        </div>
+    </div>
+  </form>
+  <br>
+                                             <table id="resultado">
+                                                
+                                                <!-- Make a Header Row -->
+                                                <thead> 
+                                                    <tr>
+                                                        
+                                                        <th style="padding-right:21px; font-weight:bold;">Cod.</th>
+                                                        <th style="padding-right:21px; font-weight:bold;">Tipo de Análisis</th>
+                                                        <th style="padding-right:21px; font-weight:bold;">Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr> 
+                                                    <script type="text/javascript"> 
+                                                       $(function cargar() {
+
+                                                            $.getJSON("http://192.168.0.10:8080/APSS/webresources/model.enfermedades",
+                                                                function (jsonData) { 
+                                                                //    Por cada uno creamos una fila de HTML
+                                                                   
+                                                                   $.each(jsonData, function (key, val) {
+                                                                        //Añadimos la fila a la tabla
+                                                                      $('<tr><td>' + val.idEnfermedades + '</td><td>' + val.clase + '</td><td>\n\
+                                                                        <button class="button button-block button-positive" onclick="erase('+val.idEnfermedades+')">Borrar </button><super-navigate location="example#edit-enfermedad"><button onclick="idtemporalenfe('+val.idEnfermedades+')"  class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
+                                                                    });
+                                                               }
+                                                                ); 
+
+														});
+														
+                                                    </script>
+                                                
+                                                </tr>   
+                                                </tbody>   
+                                            </table>
+    
+</div>
+
+
+</body>
+</html>

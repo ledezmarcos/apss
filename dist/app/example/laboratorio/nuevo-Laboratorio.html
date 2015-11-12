@@ -11,7 +11,7 @@
   <meta charset="utf8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-  <title>editar-Laboratorio</title>
+  <title>laboratorio/nuevo-Laboratorio</title>
 
   <link rel="stylesheet" href="/components/supersonic/css/supersonic.css" />
   <link rel="stylesheet" href="/app/common/stylesheets/application.css" />
@@ -47,35 +47,9 @@
 </head>
 <body ng-app="example">
 
- <script>
-       var iddee = localStorage.getItem("idLaboratorio");
-	   alert(iddee);
-       $('#idLaboratorio').val(iddee);
-       $.getJSON("http://192.168.43.47:8080/APSS/webresources/model.laboratorio/"+iddee,
-        function (jsonData) { 
-        //    Por cada uno creamos una fila de HTML
-           
-           $.each(jsonData, function (key, val) {
-                //Añadimos la fila a la tabla
-              $('#nombre').val(jsonData.nombreLaboratorio);
-              $('#direccion').val(jsonData.direccionLaboratorio);
-			  $('#telefono').val(jsonData.telefonoLaboratorio);
-              $('#email').val(jsonData.emailLaboratorio);
-			  $('#codigo').val(iddee);
-            });
-       }
-        );
-
-</script>
  <div class="box-content">
  <br><br>
                                       <div class="form-group">
-                                            <label class="control-label col-xs-3">Codigo: </label>
-                                            <div class="col-xs-9">
-                                                <input id="codigo" name="codigo" type="text" class="form-control" placeholder="Nombre del laboratorio">
-                                            </div>
-                                        </div>
-										<div class="form-group">
                                             <label class="control-label col-xs-3">Laboratorio: </label>
                                             <div class="col-xs-9">
                                                 <input id="nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del laboratorio">
@@ -91,7 +65,7 @@
                                         <div class="form-group form-horizontal">
                                             <label class="control-label col-xs-3">Teléfono: </label>
                                             <div class="col-xs-3">
-                                                <input id="telefono" name="telefono" type="tel" class="form-control" placeholder="Número de teléfono" >
+                                                <input id="telefono" name="telefono" type="tel" class="form-control" placeholder="Teléfono" >
                                             </div>
                                         </div>
 
@@ -102,13 +76,10 @@
 
                                             </div>
                                         </div>
-                                        <br><br><br>
-                                      <button onclick="editLaboratorio()">Guardar</button>   
+                                        <br>
+										<br><br>
+                                      <button onclick="SaveLaboratorio()">Guardar</button>   
                                         </div>
-                                   
-
-                                </div>
-
 
 </body>
 </html>

@@ -4,11 +4,11 @@
       Sistema APS
     </super-navbar-title>
   </super-navbar>
-<p>Ingrese la información de la nueva enfermedad</p>
+<p>Edite el nombre de la enfermedad</p>
 <script>
        var iddee = localStorage.getItem("idenfermedad");
        $('#idenferm').val(iddee);
-       $.getJSON("http://192.168.0.10:8080/APSS/webresources/model.enfermedades/"+iddee,
+       $.getJSON("http://192.168.43.190:8080/APSS/webresources/model.enfermedades/"+iddee,
         function (jsonData) { 
         //    Por cada uno creamos una fila de HTML
            

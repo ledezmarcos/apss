@@ -57,7 +57,7 @@
   Proveedor</h3 >
   <br>
   
-<super-navigate location="example#nuevo-Proveedor"><button  class="button button-block button-positive">Nuevo</button></super-navigate>	                       
+<super-navigate location="example#proveedor/nuevo-Proveedor"><button  class="button button-block button-positive">Nuevo</button></super-navigate>	                       
      											<form>
                                                 <div >
                                                     <div id="bus">
@@ -94,7 +94,7 @@
                                                                         val.nombreProveedor + '</td><td>' + 
                                                                         val.direccionProveedor + '</td><td>' +
                                                                         val.telefonoProveedor + '</td> <td>\n\
-                                                                        <button class="button button-block button-positive" onclick="eraseP('+val.idProveedor+')">Borrar </button><super-navigate location="example#editar-Proveedor"><button onclick="idtemporalpro('+val.idProveedor+')" class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
+                                                                        <button class="button button-block button-positive" onclick="eraseP('+val.idProveedor+')">Borrar </button><super-navigate location="example#proveedor/editar-Proveedor"><button onclick="idtemporalpro('+val.idProveedor+')" class="button button-block button-positive">Editar</button></super-navigate></td></tr>').appendTo("#resultado");
                                                                     });
                                                                }
                                                                 ); 
